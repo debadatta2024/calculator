@@ -52,13 +52,13 @@ button.operator {
 }
 
 button.equal {
-  background: #28a745;
+  background: #41a7cf;
 }
 
 button.clear {
-  background: #dc3545;
+  background: #61ad68;
 }
 
 button.delete {
-  background: #007bff;
+  background: #df4343;
 }
