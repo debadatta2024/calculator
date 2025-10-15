@@ -11,38 +11,52 @@
     <div class="display" id="display">0</div>
     <div class="buttons">
       <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="delete" onclick="deleteLast()">⌫</button>
       <button onclick="appendValue('(')">(</button>
       <button onclick="appendValue(')')">)</button>
       <button class="operator" onclick="appendValue('/')">÷</button>
+
       <button onclick="appendValue('7')">7</button>
       <button onclick="appendValue('8')">8</button>
       <button onclick="appendValue('9')">9</button>
       <button class="operator" onclick="appendValue('*')">×</button>
+
       <button onclick="appendValue('4')">4</button>
       <button onclick="appendValue('5')">5</button>
       <button onclick="appendValue('6')">6</button>
       <button class="operator" onclick="appendValue('-')">−</button>
+
       <button onclick="appendValue('1')">1</button>
       <button onclick="appendValue('2')">2</button>
       <button onclick="appendValue('3')">3</button>
       <button class="operator" onclick="appendValue('+')">+</button>
+
       <button onclick="appendValue('0')">0</button>
       <button onclick="appendValue('.')">.</button>
       <button class="equal" onclick="calculate()">=</button>
     </div>
   </div>
+
   <script>
     const display = document.getElementById('display');
     let currentInput = '';
+
     function appendValue(val) {
       if (currentInput.length > 20) return; // limit input length
       currentInput += val;
       display.textContent = currentInput;
     }
+
     function clearDisplay() {
       currentInput = '';
       display.textContent = '0';
     }
+
+    function deleteLast() {
+      currentInput = currentInput.slice(0, -1);
+      display.textContent = currentInput || '0';
+    }
+
     function calculate() {
       try {
         let result = eval(currentInput.replace(/÷/g, '/').replace(/×/g, '*'));
